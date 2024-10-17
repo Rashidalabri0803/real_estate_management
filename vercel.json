@@ -11,9 +11,5 @@
       "src": "/(.*)",
       "dest": "manage.py"
     }
-  ],
-  "hooks": {
-    "postinstall": "pip install -r requirements.txt",
-    "build": "python manage.py collectstatic"
-  }
+  ]
 }
