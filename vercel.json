@@ -1,4 +1,5 @@
 {
+  "version": 2,
   "builds": [
     {
       "src": "manage.py",
@@ -10,5 +11,9 @@
       "src": "/(.*)",
       "dest": "manage.py"
     }
-  ]
+  ],
+  "hooks": {
+    "postinstall": "pip install -r requirements.txt",
+    "build": "python manage.py collectstatic --noinput"
+  }
 }
