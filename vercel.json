@@ -14,6 +14,6 @@
   ],
   "hooks": {
     "postinstall": "pip install -r requirements.txt",
-    "build": "python manage.py collectstatic --noinput"
+    "build": "python manage.py collectstatic"
   }
 }
