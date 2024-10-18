@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block content %}قائمة العقارات{% endblock %}
+{% block title %}قائمة العقارات{% endblock %}
 
 {% block content %}
 <h1>قائمة العقارات</h1>
@@ -21,7 +21,7 @@
       <td>{{ property.owner.name }}</td>
       <td>{{ property.address }}</td>
       <td>{{ property.price }}</td>
-      <td>{{ property.type }}</td>
+      <td>{{ property.property_type }}</td>
       <td>
         <a href="{% url 'property_update' property.pk %}" class="btn btn-warning">تعديل</a>
         <a href="{% url 'property_delete' property.pk %}" class="btn btn-danger">حذف</a>
