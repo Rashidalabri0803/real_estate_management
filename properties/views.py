@@ -7,7 +7,7 @@ def owner_list(request):
     owners = Owner.objects.all()
     return render(request, 'owner_list.html', {'owners': owners})
 
-def owner_create(request):
+def owner_creat(request):
     if request.method == 'POST':
         form = OwnerForm(request.POST)
         if form.is_valid():
@@ -15,7 +15,7 @@ def owner_create(request):
             return redirect('owner_list')
     else:
         form = OwnerForm()
-    return render(request, 'owner_form.html', {'form': form})
+    return render(request, 'owner_creat.html', {'form': form})
 
 def owner_update(request, pk):
     owner = get_object_or_404(Owner, pk=pk)
