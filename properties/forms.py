@@ -88,7 +88,7 @@ class RentalContractForm(forms.ModelForm):
 class TenantDocumentForm(forms.ModelForm):
     class Meta:
         model = TenantDocument
-        fields = ['tenant', 'document_type', 'document_number', 'document_file']
+        fields = ['tenant', 'document_type', 'document_file']
         labels = {
             'tenant':'المستأجر',
             'document_type':'نوع الوثيقة',
@@ -98,5 +98,5 @@ class TenantDocumentForm(forms.ModelForm):
         widgets = {
             'tenant': forms.Select(attrs={'class':'form-control'}),
             'document_type': forms.TextInput(attrs={'class':'form-control'}),
-            'document_number': forms.ClearableFileInput(attrs={'class':'form-control-file'}),
+            'document_file': forms.ClearableFileInput(attrs={'class':'form-control-file'}),
         }
