@@ -15,7 +15,7 @@ class OwnerForm(forms.ModelForm):
             'name': forms.TextInput(attrs={'class':'form-control'}),
             'address': forms.Textarea(attrs={'class':'form-control', 'rows':3}),
             'phone': forms.TextInput(attrs={'class':'form-control'}),
-            'email': forms.EmailField(attrs={'class':'form-control'}),
+            'email': forms.EmailInput(attrs={'class':'form-control'}),
         }
         
 class TenantForm(forms.ModelForm):
@@ -36,11 +36,11 @@ class TenantForm(forms.ModelForm):
             'name': forms.TextInput(attrs={'class':'form-control'}), 
             'document_type': forms.Select(attrs={'class':'form-control'}),
             'document_number': forms.TextInput(attrs={'class':'form-control'}),
-            'address': forms.Textarea(attrs={'class':'form-control', 'rows':3}) 
+            'address': forms.Textarea(attrs={'class':'form-control', 'rows':3}), 
             'phone': forms.TextInput(attrs={'class':'form-control'}), 
-            'email': forms.EmailField(attrs={'class':'form-control'}), 
-            'rental_start_date': forms.DateInput(attrs={'class':'form-control', 'type', 'date'}), 
-            'rental_end_date': forms.DateInput(attrs={'class':'form-control', 'type', 'date'}),
+            'email': forms.EmailInput(attrs={'class':'form-control'}), 
+            'rental_start_date': forms.DateInput(attrs={'class':'form-control', 'type':'date'}), 
+            'rental_end_date': forms.DateInput(attrs={'class':'form-control', 'type':'date'}),
         }
 
 class PropertyForm(forms.ModelForm):
@@ -81,8 +81,8 @@ class RentalContractForm(forms.ModelForm):
         widgets = {
             'property': forms.Select(attrs={'class':'form-control'}),
             'tenant': forms.Select(attrs={'class':'form-control'}),
-            'start_date': forms.DateInput(attrs={'class':'form-control', 'type', 'date'}),
-            'end_date': forms.DateInput(attrs={'class':'form-control', 'type', 'date'}),
+            'start_date': forms.DateInput(attrs={'class':'form-control', 'type':'date'}),
+            'end_date': forms.DateInput(attrs={'class':'form-control', 'type':'date'}),
         }
 
 class TenantDocumentForm(forms.ModelForm):
