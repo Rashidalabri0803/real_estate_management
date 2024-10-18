@@ -37,7 +37,7 @@
           <tr>
             <td>{{ owner.name }}</td>
             <td>{{ owner.email }}</td>
-            <td>{{ owner.phone_number }}</td>
+            <td>{{ owner.phone }}</td>
             <td>
               <a href="{% url 'owner_update' owner.id %}" class="btn btn-warning">تعديل</a>
               <form action="{% url 'owner_delete' owner.pk %}" method="post" style="display: inline-block;">
