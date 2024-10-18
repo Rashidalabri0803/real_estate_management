@@ -15,7 +15,7 @@ def main():
             "available on your PYTHONPATH environment variable? Did you "
             "forget to activate a virtual environment?"
         ) from exc
-    webbrowser.open('http://0.0.0.0:8000')
+    webbrowser.open('http://localhost:8000')
     execute_from_command_line(sys.argv + ['runserver', '0.0.0.0:8000', '--noreload'])
 
 
