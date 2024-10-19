@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}نموذج عقد إيجار{% endblock %}
+
+{% block content %}
+<h1>نموذج عقد إيجار</h1>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-primary">حفظ</button>
+</form>
+{% endblock %}

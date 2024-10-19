@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}قائمة عقود الإيجار{% endblock %}
+
+{% block content %}
+<h1>قائمة عقود الإيجار</h1>
+<a href="{% url 'rental_contract_create' %}" class="btn btn-primary">إضافة عقد إيجار جديد</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th>المستأجر</th>
+      <th>العقار</th>
+      <th>تاريخ البداية</th>
+      <th>تاريخ النهاية</th>
+      <th>الإيجار الشهري</th>
+      <th>الإجراءات</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for rental_contract in rental_contracts %}
+    <tr>
+      <td>{{ rental_contract.tenant.name }}</td>
+      <td>{{ rental_contract.property.address }}</td>
+      <td>{{ rental_contract.start_date }}</td>
+      <td>{{ rental_contract.end_date }}</td>
+      <td>{{ rental_contract.monthly_rent }}</td>
+      <td>
+        <a href="{% url 'rental_contract_update' rental_contract.pk %}" class="btn btn-warning">تعديل</a>
+        <a href="{% url 'rental_contract_delete' rental_contract.pk %}" class="btn btn-danger">حذف</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
