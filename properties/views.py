@@ -69,6 +69,15 @@ def tenant_delete(request, pk):
 
 def property_list(request):
     properties = Property.objects.all()
+    property_type = request.GET.get('property_type')
+    price = request.GET.get('price_min')
+    price = request.GET.get('price_max')
+    if property_type:
+        properties = properties.filter(property_type=property_type)
+    if price:
+        properties = properties.filter(price__gte=price_min)
+    if price:
+        properties = properties.filter(price__lte=price_max)
     return render(request, 'property_list.html', {'properties': properties})
 
 def property_create(request):
