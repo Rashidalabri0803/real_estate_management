@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}لوحة تحكم المالك{% endblock %}
+
+{% block content %}
+    <h1>لوحة تحكم المالك</h1>
+    <a href="{% url 'property_create' %}" class="btn btn-primary">إضافة عقار جديد</a>
+    <h2>عقاراتي</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>العنوان</th>
+                <th>السعر</th>
+                <th>النوع</th>
+                <th>الإجراءات</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for property in owner_properties %}
+                <tr>
+                    <td>{{ property.address }}</td>
+                    <td>{{ property.price }}</td>
+                    <td>{{ property.type }}</td>
+                    <td>
+                        <a href="{% url 'property_update' property.pk %}" class="btn btn-warning">تعديل</a>
+                        <a href="{% url 'property_delete' property.pk %}" class="btn btn-danger">حذف</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
