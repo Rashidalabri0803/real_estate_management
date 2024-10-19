@@ -15,7 +15,7 @@ def owner_creat(request):
             return redirect('owner_list')
     else:
         form = OwnerForm()
-    return render(request, 'owner_creat.html', {'form': form})
+    return render(request, 'owner_form.html', {'form': form})
 
 def owner_update(request, pk):
     owner = get_object_or_404(Owner, pk=pk)
