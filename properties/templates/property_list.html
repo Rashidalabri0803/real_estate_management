@@ -4,6 +4,24 @@
 
 {% block content %}
 <h1>قائمة العقارات</h1>
+<form method="get" class="mb-3">
+  <div class="row">
+    <div class="col-md-4">
+      <label for="property_type">نوع العقار</label>
+      <select id="property_type" name="property_type" class="form-control">
+        <option value="">الكل</option>
+        <option value="residential">شقة</option>
+        <option value="commercial">محل</option>
+        <option value="office">مكتب</option>
+      </select>
+  </div>
+    <div class="col-md-4">
+      <label for="price_max">السعر الأقصى</label>
+      <input type="number" id="price_max" name="price_max" class="form-control" placeholder="السعر الأقصى">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">بحث</button>
+</form>
 <a href="{% url 'property_create' %}" class="btn btn-primary">إضافة عقار جديد</a>
 <table class="table">
   <thead>
