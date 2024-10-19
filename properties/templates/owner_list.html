@@ -46,6 +46,10 @@
               </form>
             </td>
           </tr>
+          {% empty %}
+          <tr>
+            <td colspan="4" class="text-center">لا توجد ملاك مسجلة حتى الآن</td>
+          </tr>
           {% endfor %}
         </tbody>
       </table>
