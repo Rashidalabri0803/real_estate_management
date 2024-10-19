@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Owner, Tenant, Property, RentalContract, TenantDocument
 from .forms import OwnerForm, TenantForm, PropertyForm, RentalContractForm, TenantDocumentForm
+from django.contrib import messages
 # Create your views here.
 
 def owner_list(request):
@@ -12,6 +13,7 @@ def owner_creat(request):
         form = OwnerForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'تم إضافة الملك بنجاح!')
             return redirect('owner_list')
     else:
         form = OwnerForm()
@@ -23,6 +25,7 @@ def owner_update(request, pk):
         form = OwnerForm(request.POST, instance=owner)
         if form.is_valid():
             form.save()
+            messages.success(request, 'تم تعديل بيانات المالك بنجاح!')
             return redirect('owner_list')
     else:
         form = OwnerForm(instance=owner)
@@ -32,6 +35,7 @@ def owner_delete(request, pk):
     owner = get_object_or_404(Owner, pk=pk)
     if request.method == 'POST':
         owner.delete()
+        messages.success(request, 'تم حذف المالك بنجاح!')
         return redirect('owner_list')
     return render(request, 'owner_confirm_delete.html', {'owner': owner})
 
