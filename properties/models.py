@@ -76,4 +76,4 @@ class PropertyReview(models.Model):
     comment = models.TextField(verbose_name="التعليق")  # التعليق
 
     def __str__(self):
-        return f'تقييم {self.property} - {self.tenant.name} - {self.rating}'
+        return f'تقييم {self.property} - {self.tenant.name} - {self.rating}/5'
